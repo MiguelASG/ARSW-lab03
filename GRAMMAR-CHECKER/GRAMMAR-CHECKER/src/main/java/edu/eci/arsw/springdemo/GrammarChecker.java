@@ -1,32 +1,39 @@
 package edu.eci.arsw.springdemo;
 
+
+import java.io.Serializable;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
 
+@Service
+public class GrammarChecker implements Serializable{
+        
+        @Autowired
+	private SpellChecker sc;
 
-public class GrammarChecker {
-
-	SpellChecker sc;
-
-	String x;
+	//String x;
+        
+        public GrammarChecker(){
+            
+        }
         
         
 	public SpellChecker getSpellChecker() {
 		return sc;
 	}
-
+        
 	public void setSpellChecker(SpellChecker sc) {
 		this.sc = sc;
 	}
-
-
+        
+        
+        @Bean
 	public String check(String text){
 		
 		StringBuffer sb=new StringBuffer();
 		sb.append("Spell checking output:"+sc.checkSpell(text));
-		sb.append("Plagiarism checking output: Not available yet");
-		
-		
+		sb.append("Plagiarism checking output: Not available yet");		
 		return sb.toString();
 		
 	}
