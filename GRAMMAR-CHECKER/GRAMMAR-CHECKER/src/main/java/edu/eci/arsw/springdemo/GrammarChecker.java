@@ -12,11 +12,8 @@ public class GrammarChecker implements Serializable{
         @Autowired
 	private SpellChecker sc;
 
-	//String x;
-        
-        public GrammarChecker(){
-            
-        }
+	String x;
+       
         
         
 	public SpellChecker getSpellChecker() {
@@ -28,7 +25,6 @@ public class GrammarChecker implements Serializable{
 	}
         
         
-        @Bean
 	public String check(String text){
 		
 		StringBuffer sb=new StringBuffer();
