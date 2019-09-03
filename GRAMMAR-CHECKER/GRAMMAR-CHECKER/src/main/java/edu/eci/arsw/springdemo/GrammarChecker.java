@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class GrammarChecker implements Serializable{
         
-        @Autowired
+    @Autowired
 	private SpellChecker sc;
 
 	String x;

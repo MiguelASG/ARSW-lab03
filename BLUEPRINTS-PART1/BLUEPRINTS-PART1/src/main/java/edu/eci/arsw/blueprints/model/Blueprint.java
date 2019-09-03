@@ -22,7 +22,13 @@ public class Blueprint {
     }
          
     public Blueprint(String author, String name){
+        this.author=author;
         this.name=name;
+        points=new ArrayList<>();
+    }
+    
+    public Blueprint(String author){
+        this.author = author;
         points=new ArrayList<>();
     }
 

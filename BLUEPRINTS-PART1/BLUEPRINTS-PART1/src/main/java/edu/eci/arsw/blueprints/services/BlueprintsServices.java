@@ -5,6 +5,7 @@
  */
 package edu.eci.arsw.blueprints.services;
 
+
 import edu.eci.arsw.blueprints.model.Blueprint;
 import edu.eci.arsw.blueprints.model.Point;
 import edu.eci.arsw.blueprints.persistence.BlueprintNotFoundException;
@@ -23,7 +24,7 @@ import org.springframework.stereotype.Service;
 public class BlueprintsServices {
    
     @Autowired
-    BlueprintsPersistence bpp=null;
+    private BlueprintsPersistence bpp=null;
     
     public void addNewBlueprint(Blueprint bp){
         
@@ -41,7 +42,11 @@ public class BlueprintsServices {
      * @throws BlueprintNotFoundException if there is no such blueprint
      */
     public Blueprint getBlueprint(String author,String name) throws BlueprintNotFoundException{
-        throw new UnsupportedOperationException("Not supported yet."); 
+        try{
+            return bpp.getBlueprint(author, name);
+        }catch(BlueprintNotFoundException BNE){
+            throw new BlueprintNotFoundException(BNE.getMessage()); 
+        }
     }
     
     /**
@@ -51,7 +56,12 @@ public class BlueprintsServices {
      * @throws BlueprintNotFoundException if the given author doesn't exist
      */
     public Set<Blueprint> getBlueprintsByAuthor(String author) throws BlueprintNotFoundException{
-        throw new UnsupportedOperationException("Not supported yet."); 
+        try{
+            return bpp.getBlueprint(author);
+        }
+        catch(BlueprintNotFoundException BNE){
+            throw new BlueprintNotFoundException(BNE.getMessage());
+        }
     }
     
 }
