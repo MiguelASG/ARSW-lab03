@@ -4,9 +4,6 @@
  * and open the template in the editor.
  */
 package filtering;
-import edu.eci.arsw.blueprints.model.Blueprint;
-import edu.eci.arsw.blueprints.model.Point;
-import java.util.List;
 import org.springframework.stereotype.Service;
 /**
  *
@@ -14,5 +11,5 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public interface BlueprintsFiltering {
-        public List<Point> filtrar(List<Point> p);
+    
 }
