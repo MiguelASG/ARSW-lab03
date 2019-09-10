@@ -24,6 +24,10 @@ public class BlueprintsServices {
     @Autowired
     private BlueprintsPersistence bpp=null;
     
+    
+    @Autowired
+    private BlueprintsFiltering bpf=null;
+    
     public void addNewBlueprint(Blueprint bp) throws BlueprintPersistenceException{
         bpp.saveBlueprint(bp);
     }
